@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">添加会员</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    <div class="formtitle"><span>添加会员</span></div>
+    <form action="adduser" method="post">
+    <ul class="forminfo">
+    <li><label>姓名</label><input name="name" type="text" class="dfinput" th:value="${user.name}"/></li>
+    <li><label>会员号</label><input name="number" type="text" class="dfinput" th:value="${user.number}"/></li>
+    <li><label>密码</label><input name="password" type="text" class="dfinput"  th:value="${user.password}"/></li>
+    <li><label>注册日期</label><input name="date" type="text" class="dfinput"  th:value="${user.date}"/></li>
+    <li><label>性别</label><input name="gender" type="text" class="dfinput" th:value="${user.gender}"/></li>
+    <li><button type="submit" class="btn" >save</button></li>
+    </ul>
+    </form>
+     <span th:text="${msg}"></span>
+    </div>
+
+
+</body>
+
+</html>

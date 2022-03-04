@@ -1,0 +1,30 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+				<mapper namespace="com.mapper.BookMapper">
+					
+					<select id="selectAll" resultType="Book">
+						select * from book						
+					</select>
+					
+					<select id="selectbookSum" resultType="int">
+						select count(*) from book
+					</select>
+					
+					<insert id="addBook"  useGeneratedKeys="true" keyProperty="id"  parameterType="Book">
+						insert into book (name,creater,create_time,publishing,price) values (#{name},
+						#{creater},#{create_time},#{publishing},#{price});
+					</insert>	
+					
+					<delete id="del_book" parameterType="int">
+						delete from book where id =#{id}
+					</delete>
+					
+					<select id="getBookById" parameterType="int" resultType="Book">
+						select * from book where id = #{id}
+					</select>
+					
+					<update id="update_book" parameterType="Book">
+						update book set name= #{name} , creater= #{creater} ,create_time =
+						#{create_time},publishing =#{publishing},price=#{price} where id = #{id}
+					</update>
+				</mapper>
